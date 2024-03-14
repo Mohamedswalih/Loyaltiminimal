@@ -14,11 +14,21 @@ class _Attendance_PageState extends State<Attendance_Page> {
     return Scaffold(
       backgroundColor: const Color(0xff000000),
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: GestureDetector(
+              onTap:(){
+    Navigator.pop(context);
+              },
+
+              child: const Image(image: AssetImage('assets/images/BackButton.png'))),
+        ),
         backgroundColor: const Color(0xff000000),
         centerTitle: true,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(width: 50.w,),
             const Image(image: AssetImage('assets/images/attendencecalender.png')),
             Text(
               'Attendance',

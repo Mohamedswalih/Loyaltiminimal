@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:loyaltri_minimal_app/View/Attendance_Page/Attendance_Page.dart';
-import 'package:loyaltri_minimal_app/View/Home_Page/Home_Page.dart';
-import 'package:loyaltri_minimal_app/View/My_Pay/My_Pay.dart';
-import 'package:loyaltri_minimal_app/View/Services_Page/Services_Page.dart';
-import 'package:loyaltri_minimal_app/View/Work_Entry/Work_Entry.dart';
+
+import 'View/menu_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         ),
-        home: const Services(),
+        home: const MenuPage(),
         );
       },
 
