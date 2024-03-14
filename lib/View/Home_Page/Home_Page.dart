@@ -1,3 +1,4 @@
+import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -10,9 +11,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // CalendarController _calendarController = CalendarController();
 
-  // Sample events (you can replace with your own data)
+  var _selectedTab = _SelectedTab.home;
+
+  void _handleIndexChanged(int i) {
+    setState(() {
+      _selectedTab = _SelectedTab.values[i];
+    });
+  }
+
   Map<DateTime, List<String>> _events = {
     DateTime(2024, 9, 13): ['Leave'],
     DateTime(2024, 9, 20): ['Duty'],
@@ -348,6 +355,37 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       backgroundColor: const Color(0xff000000),
+      bottomNavigationBar:  DotNavigationBar(
+        currentIndex: _SelectedTab.values.indexOf(_selectedTab),
+        onTap: _handleIndexChanged,
+        // dotIndicatorColor: Colors.black,
+        items: [
+          /// Home
+          DotNavigationBarItem(
+            icon: Icon(Icons.home),
+            selectedColor: Colors.purple,
+          ),
+
+          /// Likes
+          DotNavigationBarItem(
+            icon: Icon(Icons.favorite_border),
+            selectedColor: Colors.pink,
+          ),
+
+          /// Search
+          DotNavigationBarItem(
+            icon: Icon(Icons.search),
+            selectedColor: Colors.orange,
+          ),
+
+          /// Profile
+          DotNavigationBarItem(
+            icon: Icon(Icons.person),
+            selectedColor: Colors.teal,
+          ),
+
+        ],
+      ),
     );
   }
 }
